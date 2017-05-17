@@ -48,7 +48,8 @@ public class DocumentCommentedEventDescriptor extends AbstractRecordableEventDes
      */
     public DocumentCommentedEventDescriptor()
     {
-        super("core.events.comment.description", "XWiki");
+        super("core.events.comment.description",
+                "core.events.appName");
     }
 
     @Override
@@ -62,5 +63,10 @@ public class DocumentCommentedEventDescriptor extends AbstractRecordableEventDes
     public String getApplicationIcon()
     {
         return "page";
+    }
+
+    @Override
+    public EventFilter getFilter() {
+        return EventFilter.WIKI_SPACE_AND_DOCUMENT_FILTER;
     }
 }

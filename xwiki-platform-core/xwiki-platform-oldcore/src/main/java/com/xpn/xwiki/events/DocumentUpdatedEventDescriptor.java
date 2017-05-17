@@ -46,7 +46,8 @@ public class DocumentUpdatedEventDescriptor extends AbstractRecordableEventDescr
      */
     public DocumentUpdatedEventDescriptor()
     {
-        super("core.events.update.description", "XWiki");
+        super("core.events.update.description",
+                "core.events.appName");
     }
 
     @Override
@@ -60,5 +61,10 @@ public class DocumentUpdatedEventDescriptor extends AbstractRecordableEventDescr
     public String getApplicationIcon()
     {
         return "page";
+    }
+
+    @Override
+    public EventFilter getFilter() {
+        return EventFilter.WIKI_SPACE_AND_DOCUMENT_FILTER;
     }
 }

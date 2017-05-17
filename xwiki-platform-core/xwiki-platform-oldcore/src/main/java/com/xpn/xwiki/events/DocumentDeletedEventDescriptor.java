@@ -46,7 +46,8 @@ public class DocumentDeletedEventDescriptor extends AbstractRecordableEventDescr
      */
     public DocumentDeletedEventDescriptor()
     {
-        super("core.events.delete.description", "XWiki");
+        super("core.events.delete.description",
+                "core.events.appName");
     }
 
     @Override
@@ -60,5 +61,10 @@ public class DocumentDeletedEventDescriptor extends AbstractRecordableEventDescr
     public String getApplicationIcon()
     {
         return "page";
+    }
+
+    @Override
+    public EventFilter getFilter() {
+        return EventFilter.WIKI_SPACE_AND_DOCUMENT_FILTER;
     }
 }
